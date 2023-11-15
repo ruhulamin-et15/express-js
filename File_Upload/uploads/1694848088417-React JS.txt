@@ -1,0 +1,350 @@
+01*** Function Component: rfce
+import React from 'react'
+
+function Feedback() {
+  return (
+    <>Feedback</>
+  )
+}
+
+export default Feedback
+
+
+
+02.*** Class Component: rcc
+import React, { Component } from 'react'
+
+class Home extends Component {
+  render() {
+    return (
+      <>Home</>
+    )
+  }
+}
+
+export default Home
+
+
+
+03.*** Props (No Change):
+import React from 'react'
+
+function Feedback(props) {
+  return (
+    <>
+      <h1>My Name is {props.name} My Number is {props.number} </h1>
+    </>
+  )
+}
+
+export default Feedback;
+
+
+
+04.*** State:
+import React, { Component } from 'react'
+
+class Home extends Component {
+  state= {
+    name: "Sathy",
+    age: 21,
+  }
+  render() {
+    return (
+      <>
+        {"my name is " + this.state.name + " my age is " + this.state.age}
+      </>
+    )
+  }
+}
+
+export default Home;
+
+
+
+
+05.*** State Props:
+import React, { Component } from 'react'
+
+class Contact extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: "Ruhul Amin",
+      age: 27,
+      pro: "Web Development"
+    }
+  }
+  render() {
+    return (
+      <>
+        <h1>my name is {this.state.name} my age is {this.state.age} my profesion is {this.state.pro}</h1>
+      </>
+    )
+  }
+}
+
+export default Contact;
+
+
+
+import React from 'react'
+
+function Expression() {
+    const Obj = {
+        name:"Ruhul Amin",
+        prof:"Programing"
+    }
+  return (
+    <div>
+        <h1>{`My Name Is ${Obj.name}, & My Profession is ${Obj.prof}`}</h1>
+    </div>
+  )
+}
+
+export default Expression
+
+
+
+06.*** SetState & Nested Object:
+import React, { Component } from 'react'
+
+class About extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "Armina Sathy",
+            age: 21,
+            prof: "Marketing"
+        }
+    }
+    ChangeValue(a){
+      this.setState(
+        {
+          prof: "Web Development"
+        }
+      )
+    }
+    ChangeMind = this.ChangeValue.bind(this, this.a)
+   render() {
+    return (
+      <>
+        <h1>my profesion is {this.state.prof}</h1>
+        <button onClick={this.ChangeMind}>Change Value</button>
+      </>
+    )
+  }
+}
+
+export default About;
+
+
+
+07.*** Copy Paste Cut:
+import React from 'react'
+
+function Clipboard() {
+    const CopyText = ()=>{
+        console.log("Text Copied")
+    }
+    const CutText = ()=>{
+        console.log("Text Cut Successful")
+    }
+    const OnPasteText= ()=>{
+        console.log("Text Paste")
+    }
+  return (
+    <>
+    <p onCopy={CopyText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ipsa.</p>
+    <h1 onCut={CutText}>Ruhul Amin</h1>
+    <input type="text" onPaste={OnPasteText} placeholder="On Text Paste"/>
+    </>
+  )
+}
+
+export default Clipboard
+
+
+
+08.***Focus Event:
+import React from 'react'
+
+function Focus() {
+    const FocusText = ()=> {
+        console.log("You Focus This")
+    }
+    const BlurText = ()=> {
+        console.log("You Blur This")
+    }
+  return (
+    <> <br /> <br />
+    <h1>Focus Event</h1>
+    <input type="text" onFocus={FocusText} />
+    <input type="text" onBlur={BlurText} />
+    </>
+  )
+}
+
+export default Focus
+
+
+
+09.***Keyboard Event:
+import React from 'react'
+
+function Keyboard() {
+    const onKeyDownText= ()=> {
+        console.log("Key Down")
+    }
+    const onKeyUpText= ()=> {
+        console.log("Key Up")
+    }
+    const onKeyPressText= ()=> {
+        console.log("Key Pressed")
+    }
+        
+
+  return (
+    <><br /> <br />
+    <h1>Keyboard Event</h1>
+    <input type="text" onKeyDown={onKeyDownText} />
+    <input type="text" onKeyUp={onKeyUpText} />
+    <input type="text" onKeyPress={onKeyPressText} />
+    </>
+  )
+}
+
+export default Keyboard
+
+
+
+10.***Fiter:
+import React from 'react'
+
+function Fiter() {
+  return (
+    <>
+    <h1>Tmi Fiter Khao</h1>
+    </>
+  )
+}
+
+export default Fiter
+
+
+
+11.*** True False:
+import React, { Component } from 'react'
+import Fiter from './Fiter';
+
+class WelcomeAdmin extends Component {
+    constructor (props){
+        super(props)
+        this.state = {
+            YourAge:true,
+        }
+    }
+  render() {
+    let ami 
+    if(this.state.YourAge){
+        ami = "Welcome to Programing";
+    }else{
+        ami = <Fiter/>
+    }
+    return (
+      <> <br />
+      <h1>{ami}</h1>
+      </>
+    )
+  }
+}
+
+export default WelcomeAdmin; 
+
+
+
+12.***Inline CSS & Module CSS:
+import React from 'react'
+import RuhulStyle from "./Ruhul.module.css";
+
+function Style() {
+    const ElementOne = {
+        color:"black",
+        backgroundColor:"green",
+        textAlign:"center"
+    }
+  return (
+    <> <br />
+    <h1 style={ElementOne}>my 1st style component</h1> <br />
+    <h1 className={RuhulStyle.Error}>Ruhul Amin</h1> 
+    </>
+  )
+}
+
+export default Style
+
+
+
+13.***Form Data Collect:
+import React, { Component } from 'react'
+
+class Form extends Component {
+   state={
+    ChannelName:"",
+    Subscriber:"",
+    CreationDate:"",
+    About:"",
+
+
+  }
+    FormChange = (event)=> {
+        this.setState({
+          [event.target.name]: event.target.value
+        })
+    }
+    CheckBoxHandler = (event)=> {
+      this.setState({
+        Checkbox: event.target.checked
+      })
+    }
+  render() {
+    const {ChannelName,Subscriber,Category,CreationDate,About} = this.state
+    return (
+    <div className='container'>
+        <input type="text" name='ChannelName' placeholder='Channel Name' className='form-control' value={ChannelName} onChange={this.FormChange} />
+        <input type="text" name='Subscriber' placeholder='Subscriber' className='form-control' value={Subscriber} onChange={this.FormChange} />
+
+        <select name="Category" className="form-control" value={Category} onChange={this.FormChange}>
+          <option value="Select">Select</option>
+          <option value="Programing">Programing</option>
+          <option value="Funny">Funny</option>
+          <option value="Education">Education</option>
+          <option value="Entertainment">Entertainment</option>
+        </select>
+
+        <input type="date" name="CreationDate"  className='form-control' value={CreationDate} onChange={this.FormChange} />
+
+        <textarea name="About" className='form-control' value={About} onChange={this.FormChange} >About Your Self</textarea>
+
+        <input type="radio" name='Gender' value="Male" onChange={this.FormChange} />
+        <label htmlFor="Gender">Male</label>
+        <input type="radio" name='Gender' value="Female" onChange={this.FormChange} />
+        <label htmlFor="Gender">Female</label>
+
+        <input type="checkbox" name='checkbox' onChange={this.CheckBoxHandler} />
+
+        <button className='btn btn-primary' onClick={()=> console.log(this.state)} >Submit</button>
+
+
+    </div>
+    )
+  }
+}
+
+export default Form;
+
+
+
+
+
+
